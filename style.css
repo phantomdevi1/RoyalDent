@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Forum&display=swap");
+* {
+  margin: 0 auto;
+  padding: 0 auto;
+  font-style: Forum;
+  transition: 0.3s;
+}
+
+/* header */
+
+header {
+  max-width: 70%;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header_up {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 25px;
+}
+.logo_header_container {
+  display: flex;
+  align-items: center;
+}
+.logo_header_container p {
+  font-size: 40px;
+  margin-left: 18px;
+}
+.contact_info_header {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.adress_header {
+  margin: 0px;
+}
+.adress_header span {
+  font-size: 18px;
+}
+.adress_header p {
+  font-size: 16px;
+  color: #7c7c7c;
+  margin-left: 10%;
+  cursor: pointer;
+}
+.phone_number_header {
+  margin-left: 4px;
+  margin-top: 18px;
+}
+.phone_number_header span {
+  font-size: 20px;
+  margin-left: 11px;
+}
+.phone_number_header p {
+  font-size: 16px;
+  margin-left: 30px;
+}
+.working_hours_header {
+  display: flex;
+}
+.time_working_header {
+  margin-left: 6px;
+}
+.time_working_header p {
+  margin-bottom: 6px;
+}
+.make_appointment_header {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.make_appointment_header-btn {
+  width: 160px;
+  height: 40px;
+  background-color: #dbc88d;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  font-family: Forum;
+  font-weight: 400;
+  cursor: pointer;
+}
+.make_appointment_header-btn:hover {
+  background-color: #b9982a;
+}
+.make_appointment_header-call {
+  color: #7c7c7c;
+  text-decoration-line: underline;
+  font-size: 12px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.make_appointment_header-call:hover {
+  color: #3a3939;
+}
+.header_hr {
+  width: 90%;
+  color: #7c7c7c;
+}
+.header_down {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  margin: 25px;
+}
+.logo_header_container-down {
+  display: flex;
+  align-items: center;
+  margin-left: 0px;
+}
+.logo_header_container-down p {
+  margin-left: 12px;
+  font-size: 22px;
+}
+.toolbar {
+  display: flex;
+  gap: 50px;
+  margin-right: 0px;
+}
+.toolbar a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  position: relative;
+}
+.toolbar a:hover {
+  color: black;
+}
+.toolbar a::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.toolbar a:hover::before {
+  transform: scaleX(1);
+}
+
+/* index */
+
+.choose_is_index {
+  display: flex;
+  flex-direction: column;
+  width: 64%;
+  margin-top: 85px;
+}
+.cap_choose {
+  margin-left: 0px;
+}
+.cap_choose span {
+  font-size: 40px;
+}
+.content_choose {
+  width: 100%;
+}
+.content_choose_up {
+  display: flex;
+  margin-top: 59px;
+  align-items: center;
+}
+.content_choose_up img {
+  margin: 0px;
+}
+.content_choose_up span {
+  font-size: 20px;
+  width: 288px;
+  margin-left: 24px;
+  margin-right: 7%;
+}
