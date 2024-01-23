@@ -1,10 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Forum&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap");
 
 * {
   margin: 0 auto;
   padding: 0 auto;
-  font-style: 'Forum';
+  font-style: "Forum";
   transition: 0.3s;
+}
+body {
+  margin: 0;
+  font-family: "Forum", cursive;
+}
+.scrolling {
+  transition: transform 0.5s ease-in-out;
 }
 
 /* header */
@@ -14,8 +22,8 @@ header {
   min-height: 200px;
   display: flex;
   flex-direction: column;
-  align-items: center;  
-  font-style: 'Forum';
+  align-items: center;
+  font-style: "Forum";
 }
 .header_up {
   width: 100%;
@@ -162,6 +170,7 @@ header {
 }
 .cap_choose span {
   font-size: 40px;
+  font-family: Forum;
 }
 .content_choose {
   width: 100%;
@@ -204,34 +213,34 @@ header {
   gap: 20px;
   justify-content: center;
 }
-.slide1{
-  background-image: url(img/slide1.png);  
+.slide1 {
+  background-image: url(img/slide1.png);
 }
-.slide2{
+.slide2 {
   background-image: url(img/slide2.png);
 }
-.slide3{
+.slide3 {
   background-image: url(img/slide3.png);
 }
-.slide4{
+.slide4 {
   background-image: url(img/slide4.svg);
 }
-.slide5{
+.slide5 {
   background-image: url(img/slide5.svg);
 }
-.slide p{
+.slide p {
   max-width: 500px;
   text-align: left;
   margin-left: 100px;
   font-style: Forum;
 }
-.title_slide{
+.title_slide {
   font-size: 40px;
 }
-.content_slide{
+.content_slide {
   font-size: 24px;
 }
-.make_appointment_slide{
+.make_appointment_slide {
   margin-left: 100px;
 }
 
@@ -271,22 +280,22 @@ header {
 }
 
 .dot.active {
-  background-color: #534c38; 
+  background-color: #534c38;
 }
 
-.services_index{
+.services_index {
   margin-top: 100px;
   width: 65%;
-  min-height: 500px; 
+  min-height: 500px;
 }
-.service_content{
+.service_content {
   display: flex;
   flex-wrap: wrap;
 }
 .cart_service {
   width: 30%;
   height: 200px;
-  background-color: #F2E9CF;
+  background-color: #f2e9cf;
   border-radius: 10px;
   border: none;
   margin-top: 36px;
@@ -313,7 +322,7 @@ header {
 
 .content_cart p {
   margin-top: 43px;
-  font-family: 'Forum';
+  font-family: "Forum";
   font-size: 28px;
 }
 
@@ -327,3 +336,54 @@ header {
   margin-left: 10px;
 }
 
+.slider_news_index {
+  width: 100%;
+  min-height: 620px;
+  background-color: #b9e6ff;
+  margin-top: 100px;
+}
+.title_slider_news {
+  width: 65%;
+  padding-top: 84px;
+}
+.content_slider_news {
+  width: 65%;
+  display: flex;
+}
+
+.block_slider_news {
+  margin-top: 48px;
+  margin-bottom: 30px;
+  width: 256px;
+  height: 292px;
+  background-color: white;
+  border-radius: 10px;
+  border: none;
+  margin-left: 0px;
+  margin-right: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title_block_slider-news {
+  margin: 25px;
+  font-size: 16px;
+  font-family: "Gothic A1";
+  margin-bottom: 0px;
+}
+.content_block_slider-news {
+  margin: 25px;
+  margin-top: 5px;
+  font-size: 14px;
+  font-family: "Gothic A1";
+  margin-bottom: 10px;
+}
+.block_slider_news a {
+  margin-left: 25px;
+  margin-top: auto;
+}
+.slider2 {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 400px;
+}
