@@ -381,6 +381,7 @@ header {
 .block_slider_news a {
   margin-left: 25px;
   margin-top: auto;
+  margin-bottom: 10px;
 }
 .slider2 {
   display: flex;
@@ -390,4 +391,198 @@ header {
 .title_slider_news a {
   color: #7c7c7c;
   margin-left: 20px;
+}
+.btn_slider2 {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.btn_slider2 button {
+  cursor: pointer;
+}
+.btn_slider2:hover {
+  transform: scale(1.3);
+}
+
+.slider_choose {
+  display: flex;
+  flex-direction: column;
+  max-width: 1100px;
+  margin: 0 auto;
+  margin-top: 120px;
+  margin-bottom: 25px;
+}
+
+.big-slide img {
+  width: 1100px;
+  height: 600px;
+}
+
+.small-slides {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  gap: 40px;
+}
+
+.small-slide {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.small-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Сохранение пропорций изображения с обрезкой, чтобы оно полностью заполняло контейнер */
+}
+
+.small-slide.active {
+  opacity: 0.7; /* Прозрачность активного маленького слайда */
+}
+
+.slider-reviews {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.rewievs_index {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  width: 65%;
+  margin-bottom: 100px;
+}
+
+.title_reviews_index {
+  margin-left: 0px;
+}
+
+.cap_choose span {
+  margin-left: 10px;
+}
+
+.content_reviews_index {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  overflow: hidden;
+  gap: 70px;
+}
+
+.title_reviews_index a {
+  margin-left: 25px;
+  color: #3a3939;
+}
+
+.content_reviews_index {
+  margin-top: 15px;
+  display: flex;
+  height: 250px;
+  margin-bottom: 50px;
+  width: max-content; /* Добавлено: ширина контейнера не превышает ширину содержимого */
+}
+
+.reviews_block_index {
+  width: 350px;
+  height: auto;
+  max-height: 230px;
+  box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-right: 20px;
+}
+.reviews_block_index p {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.rating {
+  margin-top: 5px;
+  margin-left: 20px;
+}
+.rating p {
+  margin: 0px;
+  max-width: 310px;
+}
+
+.star {
+  background-image: url(img/star.svg);
+  width: 15px;
+}
+.active_star {
+  background-image: url(img/active_star.svg);
+  width: 15px;
+}
+
+.team_section {
+  width: 100%;
+}
+.team_section img {
+  width: 100%;
+}
+
+footer {
+  display: flex;
+  width: 100%;
+}
+.info_footer {
+  margin-top: 80px;
+}
+
+.map_footer {
+  margin: 80px;
+}
+
+.info_footer_up {
+  display: flex;
+  width: 500px;
+}
+.number_footer {
+  display: grid;
+  margin-top: 60px;
+  margin-left: 0px;
+}
+.number_footer span {
+  font-size: 24px;
+  margin-bottom: 20px;
+  margin-left: 0px;
+}
+.number_footer p {
+  font-size: 18px;
+  color: #7c7c7c;
+  margin-left: 0px;
+}
+
+.working_footer {
+  margin-top: 60px;
+  margin-right: 0px;
+}
+.working_footer span {
+  font-size: 24px;
+  margin-bottom: 20px;
+  margin-left: 0px;
+}
+.content_working_footer {
+  margin-top: 20px;
+}
+.content_working_footer p {
+  font-size: 18px;
+  color: #7c7c7c;
+  margin-left: 0px;
+}
+
+.info_footer_center {
+  width: 500px;
+  margin-top: 40px;
+}
+.info_footer_center span {
+  font-size: 24px;
+}
+.info_footer_center p {
+  font-size: 20px;
+  color: #7c7c7c;
 }

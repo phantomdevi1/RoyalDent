@@ -19,6 +19,9 @@ $servicesResult = $conn->query($servicesSql);
 $newsSql = "SELECT * FROM News";
 $newsResult = $conn->query($newsSql);
 
+$reviewsSql = "SELECT ID, Name, Rating, Comment, Date, ava FROM Reviews";
+$reviewsResult = $conn->query($reviewsSql);
+
 $conn->close();
 ?>
 
@@ -165,11 +168,11 @@ $conn->close();
     </div>
 </div>
         <center>
-            <button><img src="img/slider2_arrow_left.svg" alt=""></button>
-            <button><img src="img/slider2_arrow_right.svg" alt=""></button>
+            <button class="btn_slider2"><img src="img/slider2_arrow_left.svg" alt=""></button>
+            <button class="btn_slider2"><img src="img/slider2_arrow_right.svg" alt=""></button>
         </center>
       </section>
-      <section id="team" class="choose_is_index">
+      <section id="equipment" class="choose_is_index">
         <div class="cap_choose">
             <img src="img/logo.svg" alt="" width="25px"/>
             <span> Почему выбирают нас </span>
@@ -191,116 +194,261 @@ $conn->close();
                 <img src="img/molar-inside-a-shield.svg" alt=""/>
                 <span>Душевная атмосфера</span>
             </div>
+            <div class="slider_choose">
+              <div class="big-slide">
+                  <!-- Большая фотография -->
+                  <img src="img/img1_slider3.jpg" alt="Big Image">
+              </div>
+              <div class="small-slides">
+                  <!-- Маленькие фотографии -->
+                  <div class="small-slide active"><img src="img/img2_slider3.jpg" alt="Small Image 1"></div>
+                  <div class="small-slide"><img src="img/img3_slider3.jpg" alt="Small Image 2"></div>
+                  <div class="small-slide"><img src="img/img4_slider3.jpg" alt="Small Image 3"></div>
+                  <div class="small-slide"><img src="img/img5_slider3.jpg" alt="Small Image 4"></div>
+                  <div class="small-slide"><img src="img/img6_slider3.jpg" alt="Small Image 5"></div>
+                  <div class="small-slide"><img src="img/img7_slider3.jpg" alt="Small Image 6"></div>
+              </div>
+            </div>
         </div>
-      <section>
-    <div class="photo_index"></div>
-      <section id="reviews" class="rewiews_index">
-            <!-- ... Код раздела с отзывами ... -->
         </section>
+
+      <section id="reviews" class="rewievs_index">
+            <div class="title_reviews_index">
+            <div class="cap_choose">
+                <img src="img/logo.svg" alt="" width="25px"/>
+                <span>Отзывы</span>
+            </div>
+            <a href="https://rg.ru/tema/obshestvo/zdorovje">смотреть все отзывы</a>
+            </div>
+            <div class="slider-reviews">
+              <div class="content_reviews_index">
+            <?php     
+                if ($reviewsResult->num_rows > 0) {
+                  while ($row = $reviewsResult->fetch_assoc()) {
+                      echo '<div class="reviews_block_index">';
+                      echo '<p>' . $row["Name"] . '</p>';
+                      echo '<p>' . $row["Date"] . '</p>';
+                      $rating = $row["Rating"];
+                      echo '<div class="rating">';
+                      for ($i = 1; $i <= 5; $i++) {
+                        $starClass = ($i <= $rating) ? 'active_star' : 'star';
+                        echo '<img class="star ' . $starClass . '" src="img/' . $starClass . '.svg" alt="Star">';
+                      }
+                      
+                      echo '<p>' . $row["Comment"] . '</p>';
+                      echo '</div>';
+                      echo '</div>';
+                  }
+            } else {
+                echo "0 results";
+            }
+            ?>           
+              </div>
+              <center>
+            <button class="btn_slider2"><img src="img/slider2_arrow_left.svg" alt=""></button>
+            <button class="btn_slider2"><img src="img/slider2_arrow_right.svg" alt=""></button>
+        </center>
+          </div>              
+        </section>
+  <section id="team" class="team_section">
+            <img src="img/team.svg" alt="">
   </section>
 
+  <footer>
+    <div class="info_footer">
+      <div class="cap_choose">
+                <img src="img/logo.svg" alt="" width="25px"/>
+                <span>Контакты</span>
+      </div>
+      <div class="info_footer_up">
+        <div class="number_footer">
+          <span>Телефон:</span>
+          <p>+8 975 (129) 42-33</p>
+          <p>+8 975 (128) 42-33</p>
+          <p>+8 975 (127) 42-33</p>
+        </div>
+        <div class="working_footer">
+        <span>Режим работы</span>
+        <div class="content_working_footer">
+          <p>Пн-пт: 9:00 – 21:00</p>
+          <p>Сб: 9:00 – 15:00</p>
+          <p>Вс: Выходной</p>
+          </div>
+      </div>    
+    </div>
+    <div class="info_footer_center">
+      <span>Адрес:</span>
+      <p>170100 г.Тверь, ул. бульвар Радищева д. 44</p>
+    </div>
+    </div>
+    <div class="map_footer">
+    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A1ed253e02ca8409a59f4a6a269ba3e37bfae0bd4d8012e2f6e6aa0450fb38fe5&amp;width=800&amp;height=600&amp;lang=ru_RU&amp;scroll=true"></script>
+    </div>
+  </footer>
+
 <script>
+  //первый  слайдер
     document.addEventListener("DOMContentLoaded", function () {
-        const slider = document.querySelector(".slider");
-        const prevBtn = document.querySelector(".prev-btn");
-        const nextBtn = document.querySelector(".next-btn");
-        const dotsContainer = document.querySelector(".dots-container");
+    const slider = document.querySelector(".slider");
+    const prevBtn = document.querySelector(".prev-btn");
+    const nextBtn = document.querySelector(".next-btn");
+    const dotsContainer = document.querySelector(".dots-container");
 
-        let currentIndex = 0;
-        let autoSlideInterval;
+    let currentIndex = 0;
+    let autoSlideInterval;
 
-        // Добавляем точки
-        for (let i = 0; i < slider.children.length; i++) {
-            const dot = document.createElement("div");
-            dot.classList.add("dot");
-            dotsContainer.appendChild(dot);
+    for (let i = 0; i < slider.children.length; i++) {
+        const dot = document.createElement("div");
+        dot.classList.add("dot");
+        dotsContainer.appendChild(dot);
 
-            dot.addEventListener("click", function () {
-                currentIndex = i;
-                updateSlider();
-                resetAutoSlide();
-            });
-        }
-
-        const dots = document.querySelectorAll(".dot");
-
-        nextBtn.addEventListener("click", function () {
-            if (currentIndex < slider.children.length - 1) {
-                currentIndex++;
-                updateSlider();
-                resetAutoSlide();
-            }
-        });
-
-        prevBtn.addEventListener("click", function () {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateSlider();
-                resetAutoSlide();
-            }
-        });
-
-        function updateSlider() {
-            const newTransformValue = -currentIndex * 100 + "%";
-            slider.style.transform = "translateX(" + newTransformValue + ")";
-
-            // Обновляем активные точки
-            dots.forEach((dot, index) => {
-                dot.classList.toggle("active", index === currentIndex);
-            });
-        }
-
-        // Функция для автоматического листания слайдов
-        function autoSlide() {
-            if (currentIndex < slider.children.length - 1) {
-                currentIndex++;
-            } else {
-                currentIndex = 0;
-            }
+        dot.addEventListener("click", function () {
+            currentIndex = i;
             updateSlider();
-        }
-
-        // Сброс интервала при ручном взаимодействии
-        function resetAutoSlide() {
-            clearInterval(autoSlideInterval);
-            autoSlideInterval = setInterval(autoSlide, 5000);
-        }
-
-        // Запуск автоматического листания при загрузке страницы
-        autoSlideInterval = setInterval(autoSlide, 5000);
-
-        // Добавим также логику для второго слайдера
-        const secondSlider = document.querySelector(".content_slider_news .slider2");
-        const itemsPerPage = 4;
-        let currentIndexSecondSlider = 0;
-
-        const leftButtonNews = document.querySelector(".slider_news_index button:first-child");
-        const rightButtonNews = document.querySelector(".slider_news_index button:last-child");
-
-        rightButtonNews.addEventListener("click", function () {
-            if (currentIndexSecondSlider < secondSlider.children.length - itemsPerPage) {
-                currentIndexSecondSlider++;
-                updateSecondSlider();
-            }
+            resetAutoSlide();
         });
+    }
 
-        leftButtonNews.addEventListener("click", function () {
-            if (currentIndexSecondSlider > 0) {
-                currentIndexSecondSlider--;
-                updateSecondSlider();
-            }
-        });
+    const dots = document.querySelectorAll(".dot");
 
-        function updateSecondSlider() {
-            const newTransformValue = -currentIndexSecondSlider * (100 / itemsPerPage) + "%";
-            secondSlider.style.transition = "transform 0.5s ease-in-out";
-            secondSlider.style.transform = "translateX(" + newTransformValue + ")";
+    nextBtn.addEventListener("click", function () {
+        if (currentIndex < slider.children.length - 1) {
+            currentIndex++;
+            updateSlider();
+            resetAutoSlide();
         }
     });
+
+    prevBtn.addEventListener("click", function () {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSlider();
+            resetAutoSlide();
+        }
+    });
+
+    function updateSlider() {
+        const newTransformValue = -currentIndex * 100 + "%";
+        slider.style.transform = "translateX(" + newTransformValue + ")";
+
+        dots.forEach((dot, index) => {
+            dot.classList.toggle("active", index === currentIndex);
+        });
+    }
+
+    function autoSlide() {
+        if (currentIndex < slider.children.length - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0;
+        }
+        updateSlider();
+    }
+
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(autoSlide, 5000);
+    }
+
+    autoSlideInterval = setInterval(autoSlide, 5000);
+
+    const secondSlider = document.querySelector(".content_slider_news .slider2");
+    const itemsPerPage = 4;
+    let currentIndexSecondSlider = 0;
+
+    const leftButtonNews = document.querySelector(".slider_news_index button:first-child");
+    const rightButtonNews = document.querySelector(".slider_news_index button:last-child");
+
+    rightButtonNews.addEventListener("click", function () {
+        if (currentIndexSecondSlider < secondSlider.children.length - itemsPerPage) {
+            currentIndexSecondSlider++;
+            updateSecondSlider();
+        }
+    });
+
+    leftButtonNews.addEventListener("click", function () {
+        if (currentIndexSecondSlider > 0) {
+            currentIndexSecondSlider--;
+            updateSecondSlider();
+        }
+    });
+
+    function updateSecondSlider() {
+        const newTransformValue = -currentIndexSecondSlider * (100 / itemsPerPage) + "%";
+        secondSlider.style.transition = "transform 0.5s ease-in-out";
+        secondSlider.style.transform = "translateX(" + newTransformValue + ")";
+    }
+});
+
+
+
+//слайдер галлереи
+document.addEventListener("DOMContentLoaded", function () {
+    const bigSlide = document.querySelector(".big-slide");
+    const smallSlides = document.querySelectorAll(".small-slide");
+
+    let currentIndexChoose = 0;
+
+    function updateChooseSlides() {
+        bigSlide.querySelector("img").src = "img/img" + (currentIndexChoose + 1) + "_slider3.jpg";
+    }
+
+    function nextChooseSlide() {
+        currentIndexChoose = (currentIndexChoose + 1) % smallSlides.length;
+        bigSlide.style.opacity = 0; 
+        setTimeout(function () {
+            updateChooseSlides();
+            bigSlide.style.opacity = 1; 
+        }, 500); 
+    }
+
+    setInterval(nextChooseSlide, 5000);
+
+    smallSlides.forEach((slide, index) => {
+        slide.addEventListener("click", function () {
+            currentIndexChoose = index;
+            updateChooseSlides();
+        });
+    });
+
+    updateChooseSlides();
+});
+
+//слайдер отзывов
+document.addEventListener("DOMContentLoaded", function () {
+    const reviewsSlider = document.querySelector(".slider-reviews .content_reviews_index");
+    const prevBtnReviews = document.querySelector(".slider-reviews .btn_slider2:first-child");
+    const nextBtnReviews = document.querySelector(".slider-reviews .btn_slider2:last-child");
+
+    let currentIndexReviews = 0;
+    const itemsPerPage = 3;
+
+    nextBtnReviews.addEventListener("click", function () {
+        if (currentIndexReviews < reviewsSlider.children.length - itemsPerPage) {
+            currentIndexReviews++;
+            updateReviewsSlider();
+        }
+    });
+
+    prevBtnReviews.addEventListener("click", function () {
+        if (currentIndexReviews > 0) {
+            currentIndexReviews--;
+            updateReviewsSlider();
+        }
+    });
+
+    function updateReviewsSlider() {
+        const newTransformValue = -currentIndexReviews * (100 / itemsPerPage) + "%";
+        reviewsSlider.style.transition = "transform 0.5s ease-in-out";
+        reviewsSlider.style.transform = "translateX(" + newTransformValue + ")";
+    }
+});
 </script>
-<script>
-        // Добавляем обработчик события для навигации
-        document.addEventListener('DOMContentLoaded', function () {
+
+    <script>
+
+      //плавные переходы
+      document.addEventListener('DOMContentLoaded', function () {
             const sections = document.querySelectorAll('section');
             const toolbarLinks = document.querySelectorAll('.toolbar a');
 
@@ -314,7 +462,6 @@ $conn->close();
                         sections.forEach(section => section.classList.remove('scrolling'));
                         targetSection.classList.add('scrolling');
 
-                        // Прокрутка к выбранной секции
                         window.scrollTo({
                             top: targetSection.offsetTop,
                             behavior: 'smooth'
@@ -323,6 +470,7 @@ $conn->close();
                 });
             });
         });
+
     </script>
 </body>
 </html>
