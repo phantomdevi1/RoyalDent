@@ -387,3 +387,7 @@ header {
   transition: transform 0.5s ease-in-out;
   height: 400px;
 }
+.title_slider_news a {
+  color: #7c7c7c;
+  margin-left: 20px;
+}

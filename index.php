@@ -141,7 +141,7 @@ $conn->close();
                 <img src="img/logo.svg" alt="" width="25px"/>
                 <span>Новости</span>
             </div>
-            <a href="">смотреть все новости</a>
+            <a href="https://rg.ru/tema/obshestvo/zdorovje">смотреть все новости</a>
         </div>
         <div class="content_slider_news">
     <div class="slider-container">
