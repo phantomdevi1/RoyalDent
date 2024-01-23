@@ -19,8 +19,11 @@ $servicesResult = $conn->query($servicesSql);
 $newsSql = "SELECT * FROM News";
 $newsResult = $conn->query($newsSql);
 
-$reviewsSql = "SELECT ID, Name, Rating, Comment, Date, ava FROM Reviews";
+$reviewsSql = "SELECT ID, Name, Rating, Comment, Date FROM Reviews";
 $reviewsResult = $conn->query($reviewsSql);
+
+$pricesql = "SELECT service_name, service_cost FROM MedicalServices";
+$priceresult = $conn->query($pricesql);
 
 $conn->close();
 ?>
@@ -46,8 +49,8 @@ $conn->close();
         <div class="contact_info_header">
             <div class="adress_header">
                 <img src="img/map_icon.svg" alt=""/>
-                <span>г. Тверь бульвар Радищева, 44</span>
-                <p>показать на карте <img src="img/move_map.svg" alt=""/></p>
+                <span>г. Тверь бульвар Радищева, 44</span><br>
+                <a href="#map">показать на карте <img src="img/move_map.svg" alt=""/></a>
             </div>
             <div class="phone_number_header">
                 <img src="img/phone_icon.svg" alt=""/>
@@ -67,8 +70,8 @@ $conn->close();
             </div>
         </div>
         <div class="make_appointment_header">
-            <button class="make_appointment_header-btn">Записаться онлайн</button>
-            <button class="make_appointment_header-call">Заказать обратный звонок</button>
+            <button class="make_appointment_header-btn"><a href="order.php">Записаться онлайн</a></button>
+            <a href="callback.php" class="make_appointment_header-call">Заказать обратный звонок</a>
         </div>
     </div>
     <hr class="header_hr"/>
@@ -80,7 +83,7 @@ $conn->close();
         <div class="toolbar">
                 <a href="#services">Услуги</a>
                 <a href="#team">Команда</a>
-                <a href="#prices">Цены</a>
+                <a href="#prices" id="pricesLink">Цены</a>
                 <a href="#equipment">Оборудование</a>
                 <a href="#documents">Документы</a>
                 <a href="#news">Новости</a>
@@ -90,6 +93,32 @@ $conn->close();
 </header>
 
 <div class="index_content">
+<div class="price_list">
+    <table>
+        <thead>
+            <tr>
+                <th>Название услуги</th>
+                <th>Стоимость, руб.</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if ($priceresult->num_rows > 0) {
+                while ($row = $priceresult->fetch_assoc()) {
+                    echo '<tr>';
+                    echo '<td>' . $row["service_name"] . '</td>';
+                    echo '<td>' . number_format($row["service_cost"], 2) . '</td>';
+                    echo '</tr>';
+                }
+            } else {
+                echo '<tr><td colspan="2">0 результатов</td></tr>';
+            }
+            ?>
+        </tbody>
+    </table>
+</div>
+
+
     <div class="slider_one_index">
         <div class="slider-container">
             <div class="slider">
@@ -128,7 +157,7 @@ $conn->close();
                     echo '</div>';
                     echo '<div class="content_cart">';
                     echo '<p>' . $row["Name"] . '</p>';
-                    echo '<img src="img/arrow_cart.svg" alt="">';
+                    echo '<a href="order.php"><img src="img/arrow_cart.svg" alt=""></a>';
                     echo '</div>';
                     echo '</div>';
                 }
@@ -218,7 +247,6 @@ $conn->close();
                 <img src="img/logo.svg" alt="" width="25px"/>
                 <span>Отзывы</span>
             </div>
-            <a href="https://rg.ru/tema/obshestvo/zdorovje">смотреть все отзывы</a>
             </div>
             <div class="slider-reviews">
               <div class="content_reviews_index">
@@ -256,8 +284,10 @@ $conn->close();
 
   <footer>
     <div class="info_footer">
-      <div class="cap_choose">
-                <img src="img/logo.svg" alt="" width="25px"/>
+      <div class="cap_choose cap_choose_footer">
+                <img src="img/logo.svg" alt="" width="25px" style="
+    margin-right: 0px;
+    margin-left: 24%;"/>
                 <span>Контакты</span>
       </div>
       <div class="info_footer_up">
@@ -280,10 +310,26 @@ $conn->close();
       <span>Адрес:</span>
       <p>170100 г.Тверь, ул. бульвар Радищева д. 44</p>
     </div>
+    <div class="btn_container_footer">
+        <div class="writing_reviews">
+            <button class="make_appointment_header-btn"><a href="reviews.php">Оставить отзыв</a></button>
+            <a href="mailto:info@royaldent.ru" class="mail_footer">info@royaldent.ru</a>
+        </div>
+        <div class="record_appointment_container">
+        <button class="make_appointment_header-btn make_appointment_footer"><a href="order.php">Записаться онлайн</a></button>
+        <p></p>
+        <div class="payment_method">
+            <img src="img/portmone.svg" alt="">
+            <img src="img/visa.svg" alt="">
+            <img src="img/mastercard.svg" alt="">
+            <img src="img/mir.svg" alt="">
+        </div>
+        </div>
     </div>
-    <div class="map_footer">
+    </div>
+    <section class="map_footer" id="map">
     <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A1ed253e02ca8409a59f4a6a269ba3e37bfae0bd4d8012e2f6e6aa0450fb38fe5&amp;width=800&amp;height=600&amp;lang=ru_RU&amp;scroll=true"></script>
-    </div>
+    </section>
   </footer>
 
 <script>
@@ -472,5 +518,41 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     </script>
+
+<script>
+   // Появление цен с плавностью
+   document.addEventListener("DOMContentLoaded", function () {
+        const priceList = document.querySelector(".price_list");
+        const pricesLink = document.getElementById("pricesLink");
+
+        let isHovered = false;
+
+        pricesLink.addEventListener("click", function (event) {
+            event.preventDefault();
+            isHovered = !isHovered;
+            togglePriceList();
+        });
+
+        function showPriceList() {
+            priceList.style.opacity = 1;
+            priceList.style.display = "block";
+        }
+
+        function hidePriceList() {
+            if (!isHovered) {
+                priceList.style.opacity = 0;
+                priceList.style.display = "none"; 
+            }
+        }
+
+        function togglePriceList() {
+            if (isHovered) {
+                showPriceList();
+            } else {
+                hidePriceList();
+            }
+        }
+    });
+</script>
 </body>
 </html>

@@ -35,9 +35,17 @@ header {
   display: flex;
   align-items: center;
 }
+.logo_header_container a {
+  font-size: 40px;
+  margin-left: 18px;
+  text-decoration: none;
+  color: black;
+}
 .logo_header_container p {
   font-size: 40px;
   margin-left: 18px;
+  text-decoration: none;
+  color: black;
 }
 .contact_info_header {
   display: flex;
@@ -50,11 +58,15 @@ header {
 .adress_header span {
   font-size: 18px;
 }
-.adress_header p {
+.adress_header a {
   font-size: 16px;
   color: #7c7c7c;
   margin-left: 10%;
   cursor: pointer;
+  text-decoration: none;
+}
+.adress_header a:hover{
+  text-decoration: underline;
 }
 .phone_number_header {
   margin-left: 4px;
@@ -92,9 +104,18 @@ header {
   font-family: Forum;
   font-weight: 400;
   cursor: pointer;
+
 }
 .make_appointment_header-btn:hover {
   background-color: #b9982a;
+}
+.make_appointment_header-btn a {
+  color: #fff;
+  text-decoration: none;
+}
+.make_appointment_footer a {
+  color: #fff;
+  text-decoration: none;
 }
 .make_appointment_header-call {
   color: #7c7c7c;
@@ -158,6 +179,21 @@ header {
 }
 
 /* index */
+
+.price_list {
+  width: 80%;
+  margin-bottom: 50px;
+  border-collapse: collapse;
+  opacity: 0;
+  display: none;
+  transition: opacity 0.5s ease, visibility 0.5s ease, margin-bottom 0.5s ease;
+}
+
+.price_list.show {
+  opacity: 1;
+  display: flex;
+  margin-bottom: 100px; 
+}
 
 .choose_is_index {
   display: flex;
@@ -368,14 +404,13 @@ header {
 .title_block_slider-news {
   margin: 25px;
   font-size: 16px;
-  font-family: "Gothic A1";
   margin-bottom: 0px;
+  font-weight: 600;
 }
 .content_block_slider-news {
   margin: 25px;
   margin-top: 5px;
   font-size: 14px;
-  font-family: "Gothic A1";
   margin-bottom: 10px;
 }
 .block_slider_news a {
@@ -531,6 +566,7 @@ footer {
 }
 .info_footer {
   margin-top: 80px;
+  width: 80%;
 }
 
 .map_footer {
@@ -585,4 +621,188 @@ footer {
 .info_footer_center p {
   font-size: 20px;
   color: #7c7c7c;
+}
+.btn_container_footer{
+  display: flex;
+  margin-top: 20px;
+}
+
+.writing_reviews{
+  display: grid;
+}
+.mail_footer{
+  margin-top: 20px;
+  color: #7c7c7c;
+  font-size: 18px;
+}
+.record_appointment_container{
+  margin-left: 4%;
+}
+
+.make_appointment_footer{
+  margin-left: 0px;
+}
+
+.cap_choose_footer{
+  display: flex;
+}
+.writing_reviews {
+  margin-left: 24%;
+}
+
+/* order */
+.order_block{
+  width: 40%;
+  height: 500px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.order_block-content{
+  padding: 60px;
+  display: grid;
+}
+.order_block-header{
+  display: flex;
+  width: 100%;
+}
+.order_block-header p{
+  margin-left: 0px;
+  font-size: 18px;
+}
+.order_block-header span{
+  margin-right: 0px;
+  font-size: 18px;
+}
+
+.write_info_order{
+  display: grid;
+  width: 100%;
+  margin-top: 60px;
+}
+.service_block_order{
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+}
+.service_block_order p{
+  margin-left: 0px;
+  font-size: 18px;
+}
+.service_block_order select{
+  margin-right: 0px;
+  border-radius: 10px;
+  height: 30px;
+  border: none;
+  background-color: #ECECEC80;
+}
+.phonenumber_block_order{
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+}
+.phonenumber_block_order p{
+  margin-left: 0px;
+  font-size: 18px;
+}
+.phonenumber_block_order input{
+  margin-right: 0px;
+  border-radius: 10px;
+  width: 42.5%;
+  height: 30px;
+  border: none;
+  background-color: #ECECEC80;
+}
+.name_block_order{
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+}
+.name_block_order p{
+  margin-left: 0px;
+  font-size: 18px;
+}
+.name_block_order input{
+  margin-right: 0px;
+  border-radius: 10px;
+  width: 42.5%;
+  height: 30px;
+  border: none;
+  background-color: #ECECEC80;
+}
+
+.hr{
+  width: 100%;
+  margin-top: 60px;
+  color: black;
+}
+.setup_btn_order-container{
+  display: flex;
+  margin-top: 13px;
+  width: 100%;
+}
+.setup_btn_order-container p{
+  margin-left: 0px;
+  max-width: 260px;
+  font-size: 14px;
+}
+.setup_btn_order-container button{
+  margin-right: 0px;
+  width: 145px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #DED2A9;
+  border: none;
+  cursor: pointer;  
+}
+.setup_btn_order-container button:hover{
+  background-color: #b9982a;
+}
+.margin_top{
+  margin-top: 30px;
+}
+
+.raiting_block_reviews{
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+}
+.raiting_block_reviews p{
+  margin-left: 0px;
+  font-size: 14px;
+}
+.raiting_block_reviews select{
+  margin-right: 0px;
+  border-radius: 10px;
+  width: 42.5%;
+  height: 30px;
+  border: none;
+  background-color: #ECECEC80;
+}
+.comment_block_reviews{
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+}
+.comment_block_reviews p{
+  margin-left: 0px;
+  font-size: 14px;
+}
+.comment_block_reviews textarea{
+  margin-right: 0px;
+  border-radius: 10px;  
+  background-color: #ECECEC80;
+  width: 42.5%;
+  height: 100px;
+}
+
+.reviews_block{
+  width: 40%;
+  height: 650px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.select_doctor_reviews{
+  width: 42.5%;  
+  background-color: #ECECEC80;
 }
