@@ -85,7 +85,6 @@ $conn->close();
                 <a href="#team">Команда</a>
                 <a href="#prices" id="pricesLink">Цены</a>
                 <a href="#equipment">Оборудование</a>
-                <a href="#documents">Документы</a>
                 <a href="#news">Новости</a>
                 <a href="#reviews">Отзывы</a>
         </div>
@@ -285,9 +284,7 @@ $conn->close();
   <footer>
     <div class="info_footer">
       <div class="cap_choose cap_choose_footer">
-                <img src="img/logo.svg" alt="" width="25px" style="
-    margin-right: 0px;
-    margin-left: 24%;"/>
+                <img src="img/logo.svg" alt="" width="25px"/>
                 <span>Контакты</span>
       </div>
       <div class="info_footer_up">

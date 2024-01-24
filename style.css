@@ -65,7 +65,7 @@ header {
   cursor: pointer;
   text-decoration: none;
 }
-.adress_header a:hover{
+.adress_header a:hover {
   text-decoration: underline;
 }
 .phone_number_header {
@@ -104,7 +104,6 @@ header {
   font-family: Forum;
   font-weight: 400;
   cursor: pointer;
-
 }
 .make_appointment_header-btn:hover {
   background-color: #b9982a;
@@ -192,7 +191,7 @@ header {
 .price_list.show {
   opacity: 1;
   display: flex;
-  margin-bottom: 100px; 
+  margin-bottom: 100px;
 }
 
 .choose_is_index {
@@ -622,28 +621,28 @@ footer {
   font-size: 20px;
   color: #7c7c7c;
 }
-.btn_container_footer{
+.btn_container_footer {
   display: flex;
   margin-top: 20px;
 }
 
-.writing_reviews{
+.writing_reviews {
   display: grid;
 }
-.mail_footer{
+.mail_footer {
   margin-top: 20px;
   color: #7c7c7c;
   font-size: 18px;
 }
-.record_appointment_container{
+.record_appointment_container {
   margin-left: 4%;
 }
 
-.make_appointment_footer{
+.make_appointment_footer {
   margin-left: 0px;
 }
 
-.cap_choose_footer{
+.cap_choose_footer {
   display: flex;
 }
 .writing_reviews {
@@ -651,158 +650,376 @@ footer {
 }
 
 /* order */
-.order_block{
+.order_block {
   width: 40%;
   height: 500px;
   border-radius: 10px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.order_block-content{
+.order_block-content {
   padding: 60px;
   display: grid;
 }
-.order_block-header{
+.order_block-header {
   display: flex;
   width: 100%;
 }
-.order_block-header p{
+.order_block-header p {
   margin-left: 0px;
   font-size: 18px;
 }
-.order_block-header span{
+.order_block-header span {
   margin-right: 0px;
   font-size: 18px;
 }
 
-.write_info_order{
+.write_info_order {
   display: grid;
   width: 100%;
   margin-top: 60px;
 }
-.service_block_order{
+.service_block_order {
   width: 100%;
   display: flex;
   margin-top: 10px;
 }
-.service_block_order p{
+.service_block_order p {
   margin-left: 0px;
   font-size: 18px;
 }
-.service_block_order select{
+.service_block_order select {
   margin-right: 0px;
   border-radius: 10px;
   height: 30px;
   border: none;
-  background-color: #ECECEC80;
+  background-color: #ececec80;
 }
-.phonenumber_block_order{
+.phonenumber_block_order {
   display: flex;
   width: 100%;
   margin-top: 10px;
 }
-.phonenumber_block_order p{
+.phonenumber_block_order p {
   margin-left: 0px;
   font-size: 18px;
 }
-.phonenumber_block_order input{
-  margin-right: 0px;
-  border-radius: 10px;
-  width: 42.5%;
-  height: 30px;
-  border: none;
-  background-color: #ECECEC80;
-}
-.name_block_order{
-  display: flex;
-  width: 100%;
-  margin-top: 10px;
-}
-.name_block_order p{
-  margin-left: 0px;
-  font-size: 18px;
-}
-.name_block_order input{
+.phonenumber_block_order input {
   margin-right: 0px;
   border-radius: 10px;
   width: 42.5%;
   height: 30px;
   border: none;
-  background-color: #ECECEC80;
+  background-color: #ececec80;
+}
+.name_block_order {
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+}
+.name_block_order p {
+  margin-left: 0px;
+  font-size: 18px;
+}
+.name_block_order input {
+  margin-right: 0px;
+  border-radius: 10px;
+  width: 42.5%;
+  height: 30px;
+  border: none;
+  background-color: #ececec80;
 }
 
-.hr{
+.hr {
   width: 100%;
   margin-top: 60px;
   color: black;
 }
-.setup_btn_order-container{
+.setup_btn_order-container {
   display: flex;
   margin-top: 13px;
   width: 100%;
 }
-.setup_btn_order-container p{
+.setup_btn_order-container p {
   margin-left: 0px;
   max-width: 260px;
   font-size: 14px;
 }
-.setup_btn_order-container button{
+.setup_btn_order-container button {
   margin-right: 0px;
   width: 145px;
   height: 30px;
   border-radius: 10px;
-  background-color: #DED2A9;
+  background-color: #ded2a9;
   border: none;
-  cursor: pointer;  
+  cursor: pointer;
 }
-.setup_btn_order-container button:hover{
+.setup_btn_order-container button:hover {
   background-color: #b9982a;
 }
-.margin_top{
+.margin_top {
   margin-top: 30px;
 }
 
-.raiting_block_reviews{
+.raiting_block_reviews {
   width: 100%;
   display: flex;
   margin-top: 10px;
 }
-.raiting_block_reviews p{
+.raiting_block_reviews p {
   margin-left: 0px;
   font-size: 14px;
 }
-.raiting_block_reviews select{
+.raiting_block_reviews select {
   margin-right: 0px;
   border-radius: 10px;
   width: 42.5%;
   height: 30px;
   border: none;
-  background-color: #ECECEC80;
+  background-color: #ececec80;
 }
-.comment_block_reviews{
+.comment_block_reviews {
   width: 100%;
   display: flex;
   margin-top: 10px;
 }
-.comment_block_reviews p{
+.comment_block_reviews p {
   margin-left: 0px;
   font-size: 14px;
 }
-.comment_block_reviews textarea{
+.comment_block_reviews textarea {
   margin-right: 0px;
-  border-radius: 10px;  
-  background-color: #ECECEC80;
+  border-radius: 10px;
+  background-color: #ececec80;
   width: 42.5%;
   height: 100px;
 }
 
-.reviews_block{
+.reviews_block {
   width: 40%;
   height: 650px;
   border-radius: 10px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
-.select_doctor_reviews{
-  width: 42.5%;  
-  background-color: #ECECEC80;
+.select_doctor_reviews {
+  width: 42.5%;
+  background-color: #ececec80;
+}
+.cap_choose_footer img {
+  margin-right: 0px;
+  margin-left: 24%;
+}
+
+@media only screen and (max-width: 1500px) {
+  .time_working_header p {
+    font-size: 20px;
+  }
+  .order_block {
+    width: 60%;
+  }
+
+  .logo_header_container a,
+  .logo_header_container p {
+    font-size: 24px;
+    /* Дополнительные стили для логотипа на маленьких экранах */
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
+  }
+  .cart_service {
+    width: 40%;
+  }
+  .small-slides {
+    display: none;
+  }
+  .big-slide img {
+    width: 100%;
+    height: 600px;
+  }
+  .cap_choose_footer img {
+    margin-right: 0px;
+    margin-left: auto;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .cart_service {
+    width: 45%;
+  }
+
+  .working_hours_header {
+    display: none;
+  }
+  .phone_number_header {
+    margin-left: 6px;
+    margin-bottom: 10px;
+  }
+  .header_down {
+    flex-direction: column;
+  }
+  .logo_header_container-down {
+    display: none;
+  }
+  .toolbar {
+    margin: auto;
+    gap: 8px;
+  }
+  .cap_choose_footer img {
+    margin-left: auto;
+  }
+}
+@media only screen and (max-width: 1150px) {
+  .content_cart p {
+    font-size: 18px;
+  }
+  .map_footer {
+    margin: 20px;
+  }
+  .big-slide img {
+    height: 300px;
+  }
+  .content_choose_up span {
+    font-size: 18px;
+  }
+}
+@media only screen and (max-width: 910px) {
+  .service_content {
+    flex-direction: column;
+  }
+  .order_block {
+    height: auto;
+  }
+  .cart_service {
+    margin-left: auto;
+    width: 60%;
+  }
+  .cap_choose {
+    display: flex;
+    margin-left: auto;
+  }
+  .cap_choose img {
+    margin-right: 0px;
+  }
+  .title_slider_news a {
+    margin-left: 40%;
+  }
+  .reviews_block_index {
+    width: 220px;
+  }
+  .rating p {
+    margin-right: 10px;
+  }
+  .title_reviews_index {
+    margin-left: auto;
+    margin-bottom: 20px;
+  }
+  .service_block_order,
+  .phonenumber_block_order,
+  .name_block_order,
+  .setup_btn_order-container,
+  .raiting_block_reviews,
+  .comment_block_reviews {
+    flex-direction: column;
+  }
+  .order_block-header p,
+  .service_block_order p,
+  .phonenumber_block_order p,
+  .name_block_order p,
+  .setup_btn_order-container p,
+  .raiting_block_reviews p,
+  .comment_block_reviews p {
+    margin-left: auto;
+  }
+  .service_block_order select,
+  .phonenumber_block_order input,
+  .name_block_order input,
+  .setup_btn_order-container button,
+  .raiting_block_reviews select,
+  .comment_block_reviews textarea,
+  .setup_btn_order-container button {
+    margin-right: auto;
+    margin-top: 10px;
+  }
+  .phonenumber_block_order input,
+  .name_block_order input {
+    width: 80%;
+  }
+  .setup_btn_order-container button {
+    margin-bottom: 10px;
+  }
+
+  .reviews_block {
+    width: 80%;
+    height: auto;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .info_footer {
+    margin-bottom: 200px;
+  }
+  .map_footer {
+    display: none;
+  }
+  .content_choose_up {
+    flex-direction: column;
+  }
+  .content_choose_up {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .adress_header {
+    display: none;
+  }
+  .phone_number_header {
+    display: none;
+  }
+  .header_up {
+    flex-direction: column;
+  }
+  .make_appointment_header {
+    margin-top: 20px;
+  }
+  .cart_service {
+    width: 80%;
+  }
+  .info_footer_up {
+    flex-direction: column;
+  }
+  .number_footer {
+    margin-left: auto;
+  }
+  .working_footer {
+    margin-right: auto;
+    margin-top: 30px;
+  }
+  .info_footer_center {
+    display: flex;
+    flex-direction: column;
+  }
+  .btn_container_footer {
+    flex-direction: column;
+  }
+  .writing_reviews {
+    margin-left: auto;
+  }
+  .mail_footer {
+    margin-top: 10px;
+  }
+  .record_appointment_container {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .make_appointment_footer {
+    margin-left: auto;
+  }
+  .toolbar {
+    flex-direction: column;
+  }
 }

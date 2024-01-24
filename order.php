@@ -93,7 +93,6 @@ $conn->close();
                 <a href="#team">Команда</a>
                 <a href="#prices" id="pricesLink">Цены</a>
                 <a href="#equipment">Оборудование</a>
-                <a href="#documents">Документы</a>
                 <a href="#news">Новости</a>
                 <a href="#reviews">Отзывы</a>
         </div>
