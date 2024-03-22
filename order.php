@@ -151,6 +151,7 @@ $conn->close();
     <div class="">
         <p>Услуга</p>
         <select id="serviceSelect" name="serviceSelect">
+            <option value="">Выберите услугу</option>
             <!-- Опции для выбора услуг будут добавлены динамически с помощью JavaScript -->
         </select>
     </div>

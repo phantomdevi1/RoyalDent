@@ -924,7 +924,8 @@ footer {
   .name_block_order,
   .setup_btn_order-container,
   .raiting_block_reviews,
-  .comment_block_reviews {
+  .comment_block_reviews,
+  .service_block_order div {
     flex-direction: column;
   }
   .order_block {
