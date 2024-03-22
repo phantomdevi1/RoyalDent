@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Хост: 127.0.0.1:3306
--- Время создания: Янв 23 2024 г., 23:42
+-- Хост: 127.0.0.1:3307
+-- Время создания: Мар 22 2024 г., 16:30
 -- Версия сервера: 8.0.30
--- Версия PHP: 8.1.9
+-- Версия PHP: 8.0.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,14 @@ CREATE TABLE `AppointmentRequests` (
   `Name` varchar(255) DEFAULT NULL,
   `Phone` varchar(15) DEFAULT NULL,
   `ServiceCategoryID` int DEFAULT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `AppointmentRequests`
+--
+
+INSERT INTO `AppointmentRequests` (`ID`, `Name`, `Phone`, `ServiceCategoryID`) VALUES
+(9, 'Андрей Чикатило', '8963215685', 4);
 
 -- --------------------------------------------------------
 
@@ -45,7 +52,7 @@ CREATE TABLE `CallbackRequests` (
   `Name` varchar(255) DEFAULT NULL,
   `Phone` varchar(15) DEFAULT NULL,
   `RequestDate` date DEFAULT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -57,7 +64,7 @@ CREATE TABLE `Doctors` (
   `ID` int NOT NULL,
   `FullName` varchar(255) NOT NULL,
   `Specialization` varchar(255) NOT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Дамп данных таблицы `Doctors`
@@ -80,29 +87,30 @@ INSERT INTO `Doctors` (`ID`, `FullName`, `Specialization`) VALUES
 CREATE TABLE `MedicalServices` (
   `service_id` int NOT NULL,
   `service_name` varchar(255) NOT NULL,
-  `service_cost` decimal(10,2) NOT NULL
-) ;
+  `service_cost` decimal(10,2) NOT NULL,
+  `category_id` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Дамп данных таблицы `MedicalServices`
 --
 
-INSERT INTO `MedicalServices` (`service_id`, `service_name`, `service_cost`) VALUES
-(1, 'Пломбирование зуба', '5000.00'),
-(2, 'Эстетическое отбеливание зубов', '12000.00'),
-(3, 'Удаление зуба мудрости', '8000.00'),
-(4, 'Имплантация зуба', '25000.00'),
-(5, 'Протезирование на имплантатах', '35000.00'),
-(6, 'Ортодонтическое лечение', '18000.00'),
-(7, 'Лечение кариеса', '4500.00'),
-(8, 'Эндодонтическое лечение', '7000.00'),
-(9, 'Гигиеническая чистка зубов', '3000.00'),
-(10, 'Профессиональная гигиеническая чистка', '4000.00'),
-(11, 'Лазерная терапия десен', '6000.00'),
-(12, 'Рентгенография челюсти', '2500.00'),
-(13, 'Диагностика состояния зубов', '3500.00'),
-(14, 'Травматологическая помощь', '5500.00'),
-(15, 'Консультация стоматолога', '2000.00');
+INSERT INTO `MedicalServices` (`service_id`, `service_name`, `service_cost`, `category_id`) VALUES
+(1, 'Пломбирование зуба', '5000.00', 1),
+(2, 'Эстетическое отбеливание зубов', '12000.00', 2),
+(3, 'Удаление зуба мудрости', '8000.00', 3),
+(4, 'Имплантация зуба', '25000.00', 4),
+(5, 'Протезирование на имплантатах', '35000.00', 5),
+(6, 'Ортодонтическое лечение', '18000.00', 6),
+(7, 'Лечение кариеса', '4500.00', 1),
+(8, 'Эндодонтическое лечение', '7000.00', 2),
+(9, 'Гигиеническая чистка зубов', '3000.00', 2),
+(10, 'Профессиональная гигиеническая чистка', '4000.00', 3),
+(11, 'Лазерная терапия десен', '6000.00', 4),
+(12, 'Рентгенография челюсти', '2500.00', 1),
+(13, 'Диагностика состояния зубов', '3500.00', 6),
+(14, 'Травматологическая помощь', '5500.00', 4),
+(15, 'Консультация стоматолога', '2000.00', 3);
 
 -- --------------------------------------------------------
 
@@ -116,7 +124,7 @@ CREATE TABLE `News` (
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `link` varchar(255) NOT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Дамп данных таблицы `News`
@@ -143,7 +151,7 @@ CREATE TABLE `Reviews` (
   `Comment` text,
   `Date` date DEFAULT NULL,
   `DoctorID` int DEFAULT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Дамп данных таблицы `Reviews`
@@ -166,7 +174,7 @@ CREATE TABLE `ServiceCategories` (
   `ID` int NOT NULL,
   `Name` varchar(255) DEFAULT NULL,
   `Photo` varchar(255) DEFAULT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Дамп данных таблицы `ServiceCategories`
@@ -192,7 +200,7 @@ CREATE TABLE `SliderData` (
   `content` text NOT NULL,
   `button_text` varchar(50) NOT NULL,
   `image_path` varchar(255) NOT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Дамп данных таблицы `SliderData`
@@ -232,7 +240,8 @@ ALTER TABLE `Doctors`
 -- Индексы таблицы `MedicalServices`
 --
 ALTER TABLE `MedicalServices`
-  ADD PRIMARY KEY (`service_id`);
+  ADD PRIMARY KEY (`service_id`),
+  ADD KEY `fk_category_id` (`category_id`);
 
 --
 -- Индексы таблицы `News`
@@ -267,7 +276,7 @@ ALTER TABLE `SliderData`
 -- AUTO_INCREMENT для таблицы `AppointmentRequests`
 --
 ALTER TABLE `AppointmentRequests`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT для таблицы `CallbackRequests`
@@ -320,6 +329,12 @@ ALTER TABLE `SliderData`
 --
 ALTER TABLE `AppointmentRequests`
   ADD CONSTRAINT `appointmentrequests_ibfk_1` FOREIGN KEY (`ServiceCategoryID`) REFERENCES `MedicalServices` (`service_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Ограничения внешнего ключа таблицы `MedicalServices`
+--
+ALTER TABLE `MedicalServices`
+  ADD CONSTRAINT `fk_category_id` FOREIGN KEY (`category_id`) REFERENCES `ServiceCategories` (`ID`);
 
 --
 -- Ограничения внешнего ключа таблицы `Reviews`
