@@ -66,15 +66,12 @@ $conn->close();
     </div>
     <hr class="header_hr"/>
     <div class="header_down">
-        <div class="logo_header_container-down">
-            <img src="img/logo.svg" alt="" width="20px"/>
-            <p>RoyalDent</p>
-        </div>
+       
         <div class="toolbar">
                 <a href="#services">Услуги</a>
                 <a href="#team">Команда</a>
                 <a href="#prices" id="pricesLink">Цены</a>
-                <a href="#equipment">Оборудование</a>
+                <a href="#equipment" class="adaptive_sixteen-index">Оборудование</a>
                 <a href="#news">Новости</a>
                 <a href="#reviews">Отзывы</a>
         </div>
@@ -117,7 +114,7 @@ $conn->close();
                         echo '<div class="slide" style="background-image: url(' . $row["image_path"] . ');">';
                         echo '<p class="title_slide">' . $row["title"] . '</p>';
                         echo '<p class="content_slide">' . $row["content"] . '</p>';
-                        echo '<button class="make_appointment_header-btn make_appointment_slide">' . $row["button_text"] . '</button>';
+                        echo '<button onclick = "document.location=`order.php`" class="make_appointment_header-btn make_appointment_slide">' . $row["button_text"] . '</button>';
                         echo '</div>';
                     }
                 } else {
@@ -190,12 +187,12 @@ $conn->close();
             <button class="btn_slider2"><img src="img/slider2_arrow_right.svg" alt=""></button>
         </center>
       </section>
-      <section id="equipment" class="choose_is_index">
+      <section  class="choose_is_index">
         <div class="cap_choose">
             <img src="img/logo.svg" alt="" width="25px"/>
             <span> Почему выбирают нас </span>
         </div>
-        <div class="content_choose">
+        <div  class="content_choose">
             <div class="content_choose_up">
                 <img src="img/clipboard-with-check-marks.svg" alt=""/>
                 <span>Удобное расположение</span>
@@ -212,7 +209,7 @@ $conn->close();
                 <img src="img/molar-inside-a-shield.svg" alt=""/>
                 <span>Душевная атмосфера</span>
             </div>
-            <div class="slider_choose">
+            <div id="equipment" class="slider_choose">
               <div class="big-slide">
                   <!-- Большая фотография -->
                   <img src="img/img1_slider3.jpg" alt="Big Image">

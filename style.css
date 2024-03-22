@@ -921,6 +921,9 @@ footer {
   .comment_block_reviews {
     flex-direction: column;
   }
+  .order_block {
+    width: 90%;
+  }
   .order_block-header p,
   .service_block_order p,
   .phonenumber_block_order p,
@@ -1021,5 +1024,46 @@ footer {
   }
   .toolbar {
     flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .slider_one_index {
+    display: none;
+  }
+  .info_footer_center {
+    width: auto;
+  }
+  .info_footer_up {
+    width: auto;
+  }
+  .img_cart {
+    display: none;
+  }
+  .content_cart {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .slider_choose {
+    display: none;
+  }
+  .title_slider_news a {
+    margin-left: 20%;
+  }
+  .adaptive_sixteen-index {
+    display: none;
+  }
+
+  .service_block_order select {
+    width: 80%;
+  }
+  .order_block-content {
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .btn_slider2 {
+    display: none;
   }
 }

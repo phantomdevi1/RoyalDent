@@ -70,23 +70,20 @@ $conn->close();
             </div>
         </div>
         <div class="make_appointment_header">
-            <button class="make_appointment_header-btn">Записаться онлайн</button>
-            <button class="make_appointment_header-call">Заказать обратный звонок</button>
+        <button class="make_appointment_header-btn"><a href="order.php">Записаться онлайн</a></button>
+            <a href="callback.php" class="make_appointment_header-call">Заказать обратный звонок</a>
         </div>
     </div>
     <hr class="header_hr"/>
     <div class="header_down">
-        <div class="logo_header_container-down">
-            <img src="img/logo.svg" alt="" width="20px"/>
-            <p>RoyalDent</p>
-        </div>
-        <div class="toolbar">
-                <a href="#services">Услуги</a>
-                <a href="#team">Команда</a>
-                <a href="#prices" id="pricesLink">Цены</a>
-                <a href="#equipment">Оборудование</a>
-                <a href="#news">Новости</a>
-                <a href="#reviews">Отзывы</a>
+    
+    <div class="toolbar">
+                <a href="index.php#services">Услуги</a>
+                <a href="index.php#team">Команда</a>
+                <a href="index.php#prices" id="pricesLink">Цены</a>
+                <a href="index.php#equipment" class="adaptive_sixteen-index">Оборудование</a>
+                <a href="index.php#news">Новости</a>
+                <a href="index.php#reviews">Отзывы</a>
         </div>
     </div>
 </header>
