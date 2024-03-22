@@ -32,7 +32,7 @@ CREATE TABLE `AppointmentRequests` (
   `Name` varchar(255) DEFAULT NULL,
   `Phone` varchar(15) DEFAULT NULL,
   `ServiceCategoryID` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 --
 -- Дамп данных таблицы `AppointmentRequests`
@@ -52,7 +52,7 @@ CREATE TABLE `CallbackRequests` (
   `Name` varchar(255) DEFAULT NULL,
   `Phone` varchar(15) DEFAULT NULL,
   `RequestDate` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 -- --------------------------------------------------------
 
@@ -64,7 +64,7 @@ CREATE TABLE `Doctors` (
   `ID` int NOT NULL,
   `FullName` varchar(255) NOT NULL,
   `Specialization` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 --
 -- Дамп данных таблицы `Doctors`
@@ -89,7 +89,7 @@ CREATE TABLE `MedicalServices` (
   `service_name` varchar(255) NOT NULL,
   `service_cost` decimal(10,2) NOT NULL,
   `category_id` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 --
 -- Дамп данных таблицы `MedicalServices`
@@ -124,7 +124,7 @@ CREATE TABLE `News` (
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `link` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 --
 -- Дамп данных таблицы `News`
@@ -151,7 +151,7 @@ CREATE TABLE `Reviews` (
   `Comment` text,
   `Date` date DEFAULT NULL,
   `DoctorID` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 --
 -- Дамп данных таблицы `Reviews`
@@ -174,7 +174,7 @@ CREATE TABLE `ServiceCategories` (
   `ID` int NOT NULL,
   `Name` varchar(255) DEFAULT NULL,
   `Photo` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 --
 -- Дамп данных таблицы `ServiceCategories`
@@ -200,7 +200,7 @@ CREATE TABLE `SliderData` (
   `content` text NOT NULL,
   `button_text` varchar(50) NOT NULL,
   `image_path` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 --
 -- Дамп данных таблицы `SliderData`
