@@ -652,7 +652,6 @@ footer {
 /* order */
 .order_block {
   width: 40%;
-  height: 500px;
   border-radius: 10px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
@@ -679,9 +678,16 @@ footer {
   width: 100%;
   margin-top: 60px;
 }
-.service_block_order {
+.service_block_order,
+.category_block_order {
   width: 100%;
   display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.service_block_order div {
+  display: flex;
+  width: 100%;
   margin-top: 10px;
 }
 .service_block_order p {

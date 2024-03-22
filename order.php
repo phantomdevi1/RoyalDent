@@ -4,8 +4,12 @@ include 'config.php';
 $pricesql = "SELECT service_name, service_cost FROM MedicalServices";
 $priceresult = $conn->query($pricesql);
 
-$categoriesSql = "SELECT `service_id`, `service_name`, `service_cost` FROM `MedicalServices`";
+// Запрос для получения категорий
+$categoriesSql = "SELECT `ID`, `Name` FROM `ServiceCategories`";
 $categoriesResult = $conn->query($categoriesSql);
+
+$categoriesSql = "SELECT `service_id`, `service_name`, `service_cost` FROM `MedicalServices`";
+$servicesResult = $conn->query($categoriesSql);
 
 // Проверка, была ли отправлена форма методом POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -69,14 +73,17 @@ $conn->close();
             </div>
         </div>
         <div class="make_appointment_header">
-             <button class="make_appointment_header-btn"><a href="order.php">Записаться онлайн</a></button>
-            <a href="callback.php" class="make_appointment_header-call">Заказать обратный звонок</a>
+            <button class="make_appointment_header-btn">Записаться онлайн</button>
+            <button class="make_appointment_header-call">Заказать обратный звонок</button>
         </div>
     </div>
     <hr class="header_hr"/>
     <div class="header_down">
-     
-    <div class="toolbar">
+        <div class="logo_header_container-down">
+            <img src="img/logo.svg" alt="" width="20px"/>
+            <p>RoyalDent</p>
+        </div>
+        <div class="toolbar">
                 <a href="index.php#services">Услуги</a>
                 <a href="index.php#team">Команда</a>
                 <a href="index.php#prices" id="pricesLink">Цены</a>
@@ -126,18 +133,28 @@ $conn->close();
                 ?>
                 </center>
         <form method="post" action="" class="write_info_order">
-            <div class="service_block_order">
-                <p>Услуга</p>
-                <select id="categorySelect" name="categorySelect">
-                    <?php                      
-                    if ($categoriesResult->num_rows > 0) {
-                        while ($row = $categoriesResult->fetch_assoc()) {
-                            echo '<option value="' . $row["service_id"] . '">' . $row["service_name"] . '</option>';
-                        }
-                    }
-                    ?>
-                </select>
-            </div>
+          
+        <div class="service_block_order">
+    <div class="">
+        <p>Категория</p>
+        <select id="categorySelect" name="categorySelect" onchange="updateServices()">
+            <option value="">Выберите категорию</option>
+            <?php                      
+            if ($categoriesResult->num_rows > 0) {
+                while ($row = $categoriesResult->fetch_assoc()) {
+                    echo '<option value="' . $row["ID"] . '">' . $row["Name"] . '</option>';
+                }
+            }
+            ?>
+        </select>
+    </div>
+    <div class="">
+        <p>Услуга</p>
+        <select id="serviceSelect" name="serviceSelect">
+            <!-- Опции для выбора услуг будут добавлены динамически с помощью JavaScript -->
+        </select>
+    </div>
+</div>
             <div class="phonenumber_block_order">
                 <p>Номер телефона</p>
                 <input type="text" name="phoneNumber" id="phoneNumber">
@@ -196,6 +213,41 @@ $conn->close();
         }
     });
     
+</script>
+<script>
+    function updateServices() {
+        var categoryId = document.getElementById("categorySelect").value;
+        var serviceSelect = document.getElementById("serviceSelect");
+
+        // Очистка текущих элементов в списке услуг
+        serviceSelect.innerHTML = "";
+
+        // Добавление заглушки для услуг по умолчанию
+        var defaultOption = document.createElement("option");
+        defaultOption.text = "Выберите услугу";
+        serviceSelect.add(defaultOption);
+
+        // Отправка запроса на сервер, чтобы получить услуги по выбранной категории
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    var services = JSON.parse(xhr.responseText);
+                    services.forEach(function(service) {
+                        var option = document.createElement("option");
+                        option.value = service.service_id;
+                        option.text = service.service_name;
+                        serviceSelect.add(option);
+                    });
+                } else {
+                    console.error('Ошибка при получении услуг: ' + xhr.status);
+                }
+            }
+        };
+
+        xhr.open('GET', 'get_services.php?category_id=' + categoryId, true);
+        xhr.send();
+    }
 </script>
 
 </body>
