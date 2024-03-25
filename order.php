@@ -80,10 +80,7 @@ $conn->close();
     </div>
     <hr class="header_hr"/>
     <div class="header_down">
-        <div class="logo_header_container-down">
-            <img src="img/logo.svg" alt="" width="20px"/>
-            <p>RoyalDent</p>
-        </div>
+       
         <div class="toolbar">
                 <a href="index.php#services">Услуги</a>
                 <a href="index.php#team">Команда</a>
