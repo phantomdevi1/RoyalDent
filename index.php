@@ -28,6 +28,7 @@ $conn->close();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 <header>
@@ -304,8 +305,6 @@ $conn->close();
         <p></p>
         <div class="payment_method">
             <img src="img/portmone.svg" alt="">
-            <img src="img/visa.svg" alt="">
-            <img src="img/mastercard.svg" alt="">
             <img src="img/mir.svg" alt="">
         </div>
         </div>
