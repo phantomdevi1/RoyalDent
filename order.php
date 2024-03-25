@@ -36,7 +36,7 @@ $conn->close();
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Главная</title>
+    <title>Запись на приём</title>
     <link rel="stylesheet" href="style.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -136,7 +136,7 @@ $conn->close();
     <div class="">
         <p>Категория</p>
         <select id="categorySelect" name="categorySelect" onchange="updateServices()">
-            <option value="">Выберите категорию</option>
+            <option value="1" required>Выберите категорию</option>
             <?php                      
             if ($categoriesResult->num_rows > 0) {
                 while ($row = $categoriesResult->fetch_assoc()) {
@@ -149,18 +149,18 @@ $conn->close();
     <div class="">
         <p>Услуга</p>
         <select id="serviceSelect" name="serviceSelect">
-            <option value="">Выберите услугу</option>
+            <option value="1">Выберите услугу</option>
             <!-- Опции для выбора услуг будут добавлены динамически с помощью JavaScript -->
         </select>
     </div>
 </div>
             <div class="phonenumber_block_order">
                 <p>Номер телефона</p>
-                <input type="text" name="phoneNumber" id="phoneNumber">
+                <input type="text" name="phoneNumber" id="phoneNumber" required>
             </div>
             <div class="name_block_order">
                 <p>Имя</p>
-                <input type="text" name="name" id="name">
+                <input type="text" name="name" id="name" required>
             </div>
         
             <hr class="hr">

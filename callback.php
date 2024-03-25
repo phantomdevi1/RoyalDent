@@ -33,7 +33,7 @@ $conn->close();
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Главная</title>
+    <title>Заказать звонок</title>
     <link rel="stylesheet" href="style.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -129,11 +129,11 @@ $conn->close();
             <form method="post" action="" class="write_info_order">
                 <div class="phonenumber_block_order">
                     <p>Номер телефона</p>
-                    <input type="text" name="phoneNumber" id="phoneNumber">
+                    <input type="text" name="phoneNumber" id="phoneNumber" required>
                 </div>
                 <div class="name_block_order">
                     <p>Имя</p>
-                    <input type="text" name="name" id="name">
+                    <input type="text" name="name" id="name" required>
                 </div>
             
                 <hr class="hr">
