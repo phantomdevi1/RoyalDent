@@ -75,7 +75,7 @@ $conn->close();
         </div>
         <div class="make_appointment_header">
             <button class="make_appointment_header-btn">Записаться онлайн</button>
-            <button class="make_appointment_header-call">Заказать обратный звонок</button>
+            <a href="callback.php" class="make_appointment_header-call">Заказать обратный звонок</a>
         </div>
     </div>
     <hr class="header_hr"/>
