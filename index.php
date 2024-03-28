@@ -135,23 +135,19 @@ $conn->close();
         </div>
 
         <div class="service_content">
-            <?php
-            if ($servicesResult->num_rows > 0) {
-                while ($row = $servicesResult->fetch_assoc()) {
-                    echo '<div class="cart_service">';
-                    echo '<div class="img_cart">';
-                    echo '<img src="' . $row["Photo"] . '" alt="">';
-                    echo '</div>';
-                    echo '<div class="content_cart">';
-                    echo '<p>' . $row["Name"] . '</p>';
-                    echo '<a href="order.php"><img src="img/arrow_cart.svg" alt=""></a>';
-                    echo '</div>';
-                    echo '</div>';
+        <?php
+                if ($sliderResult->num_rows > 0) {
+                    while ($row = $sliderResult->fetch_assoc()) {
+                        echo '<div class="slide" style="background-image: url(' . $row["image_path"] . ');">';
+                        echo '<p class="title_slide">' . $row["title"] . '</p>';
+                        echo '<p class="content_slide">' . $row["content"] . '</p>';
+                        echo '<button onclick = "document.location=`order.php`" class="make_appointment_header-btn make_appointment_slide">' . $row["button_text"] . '</button>';
+                        echo '</div>';
+                    }
+                } else {
+                    echo "0 results";
                 }
-            } else {
-                echo "0 results";
-            }
-            ?>
+                ?>
         </div>
     </div>
     <section id="news" class="slider_news_index">
